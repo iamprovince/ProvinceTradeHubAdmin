@@ -16,7 +16,7 @@ const Dashboard = () => {
     setLoading(!admin);
   }, [admin]);
   return (
-    <section className='pb-4'>
+    <section className='pb-2'>
       <div className='flex flex-col'>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
           <div className='order-1 md:order-1 lg:order-1'>{loading ? <Loader /> : <Welcome />}</div>
