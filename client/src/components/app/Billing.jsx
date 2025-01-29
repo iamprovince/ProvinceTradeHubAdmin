@@ -141,7 +141,7 @@ const Billing = () => {
                   {renderIcon(option.name)}
                 </span>
               </div>
-              <div className='text-lg font-semibold px-2 mt-6'>
+              <div className='text-md lg:text-lg font-semibold px-2 mt-6'>
                 <h2 className='capitalize truncate w-full flex justify-center'>{option?.name}</h2>
               </div>
             </div>
