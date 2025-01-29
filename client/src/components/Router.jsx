@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import NotificationDisplay from "./layout/NotificationDisplay";
 import Dashboard from "./app/Dashboard";
 import Admins from "./app/Admins";
@@ -90,7 +90,7 @@ export default function Router() {
         </CheckAuth>
       ),
       children: [
-        { path: "", element: <Navigate to='/login' replace /> },
+        { path: "", element: <Login /> },
         { path: "login", element: <Login /> },
       ],
     },
