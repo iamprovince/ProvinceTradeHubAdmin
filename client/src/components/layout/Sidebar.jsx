@@ -109,7 +109,7 @@ function SidebarContent() {
           </ListItemPrefix>
           <UtcTime />
         </ListItem>
-        <ListItem>
+        <ListItem className='hidden lg:block'>
           <ListItemPrefix>
             <span className='h-5 w-5 scale-125'>{handIcon}</span>
           </ListItemPrefix>
