@@ -65,9 +65,15 @@ const Mailing = () => {
         setSubject("");
         setHeader("");
         setTargets("");
-
-        setInvalidTargetsCount(invalidTargets);
-        setMatchedTargetsCount(matchedTargets);
+        setInvalidTargetsCount(parseFloat(invalidTargets));
+        setMatchedTargetsCount(parseFloat(matchedTargets));
+        setSuccessfulEmails(successfulEmails);
+        setFailedEmails(failedEmails);
+      } else if (!response.success) {
+        const { invalidTargets, matchedTargets, successfulEmails, failedEmails } = response;
+        addNotification("Mailing operation complete without errors but not successful");
+        setInvalidTargetsCount(parseFloat(invalidTargets));
+        setMatchedTargetsCount(parseFloat(matchedTargets));
         setSuccessfulEmails(successfulEmails);
         setFailedEmails(failedEmails);
       } else {

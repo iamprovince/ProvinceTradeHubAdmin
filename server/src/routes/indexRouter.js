@@ -370,13 +370,19 @@ Router.route('/mailing')
         const uniqueTargets = [...new Set(targets)];
 
         // Validate each email address in the target array
+        const isValidEmail = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        };
+
         uniqueTargets.forEach(target => {
-            if (isValidObjectId(target)) {
+            if (target === "*" || isValidEmail(target)) {
                 validTargets.push(target);
             } else {
                 invalidTargets.push(target);
             }
         });
+
 
         try {
             if (targets.length === 1 && targets[0] === "*") {
