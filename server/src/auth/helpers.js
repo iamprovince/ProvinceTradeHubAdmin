@@ -1,7 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config()
 import JWT from 'jsonwebtoken'
 // ** Helper for reauthenticating admin access token
 async function generateAccessToken(admin) {
-    return JWT.sign(admin, process.env.JWT_ACCESS_TOKEN_SECRET, { expiresIn: '24h' })
+    return JWT.sign(admin, process.env.JWT_ACCESS_TOKEN_SECRET, { expiresIn: '72h' })
 }
 const mail = async (details) => {
     const { email, subject, message, header } = details; // `email` can be a single string or an array of addresses
