@@ -228,9 +228,7 @@ export default function LatestDeposit() {
             </div>
           </>
         ) : (
-          <Typography className='mt-4 text-sm text-error-dark'>
-            No deposit data available.
-          </Typography>
+          <Typography className='mt-4 text-sm'>No deposit data available.</Typography>
         )}
       </CardBody>
     </Card>
