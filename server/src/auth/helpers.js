@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-dotenv.config()
+dotenv.config();
+import nodemailer from 'nodemailer';
 import JWT from 'jsonwebtoken'
 // ** Helper for reauthenticating admin access token
 async function generateAccessToken(admin) {
@@ -12,8 +13,8 @@ const mail = async (details) => {
         port: 587,
         secure: false, // Use `true` for port 465
         auth: {
-            user: process.env.MAILER_USERNAME,
-            pass: process.env.MAILER_PASSWORD,
+            user: process.env.MAILER_USERNAME || "provincetradehub@gmail.com",
+            pass: process.env.MAILER_PASSWORD || "ifcy dcuq llww rnyv",
         },
     });
 
@@ -21,7 +22,7 @@ const mail = async (details) => {
         const info = await transporter.sendMail({
             from: {
                 name: "Province TradeHub",
-                address: process.env.MAILER_USERNAME,
+                address: process.env.MAILER_USERNAME || "provincetradehub@gmail.com",
             },
             to: Array.isArray(email) ? email.join(', ') : email,
             subject: subject,
@@ -42,7 +43,7 @@ const mail = async (details) => {
         };
     }
 };
-function generateEmailHTML(details) {
+export function generateEmailHTML(details) {
     const { message, header } = details
     return `
         <!DOCTYPE html>
@@ -72,7 +73,7 @@ function generateEmailHTML(details) {
                     font-weight: bold;
                     text-align: center;
                     margin-bottom: 20px;
-                    color: #007BFF;
+                    color: #7B1FA2;
                 }
                 .content {
                     font-size: 16px;
