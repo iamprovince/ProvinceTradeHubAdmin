@@ -194,13 +194,15 @@ const createTopup = async (details = {}) => {
 
         const newBalance = parseFloat(user.wallet.balance) + parseFloat(amount);
         const newTopup = parseFloat(user.wallet.topup) + parseFloat(amount);
+const newProfits = parseFloat(user.wallet.profits) + parseFloat(amount);
 
         const updatedUser = await User.findByIdAndUpdate(
             userId,
             {
                 $set: {
                     'wallet.balance': newBalance,
-                    'wallet.topup': newTopup
+                    'wallet.topup': newTopup,
+                    'wallet.profits': newProfits
                 }
             },
             { new: true, runValidators: true }
