@@ -164,7 +164,7 @@ const confirmDeposit = async (deposit) => {
         const parsedTotalBonus = parseFloat(totalBonus);
 
         const newBalance = parsedBalance + parsedUpdatedAmount;
-        const newTotalDeposit = parsedTotalDeposit + parsedUpdatedAmount;
+        const newTotalDeposit = parsedTotalDeposit + parsedOriginalAmount;
         const newTotalBonus = parsedTotalBonus + (parsedUpdatedAmount - parsedOriginalAmount);
 
         const result = await User.findByIdAndUpdate(
